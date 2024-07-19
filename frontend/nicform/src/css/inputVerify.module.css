@@ -1,0 +1,267 @@
+/* General page styles */
+
+
+/* General page styles */
+
+.btn-header {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+main {
+  flex: 8;
+  padding-left: 14%;
+}
+
+.container-fluid {
+  margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.panel-primary {
+  border-color: #337ab7;
+}
+
+.panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+
+.panel-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Container for the entire multiselect dropdown */
+#myMultiselect {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* The visible part of the dropdown that shows the selected options */
+.selectBox {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Dropdown arrow or visual cue */
+.selectBox::after {
+  content: "";
+  border: 5px solid transparent;
+  border-top-color: #000;
+  position: absolute;
+  right: 10px;
+}
+
+/* The area that appears when the dropdown is clicked */
+#checkboxes {
+  display: inline-block;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%;
+  max-height: 200px;
+  /* overflow-y: auto; */
+}
+
+/* Display the checkboxes when the showCheckboxes state is true */
+.selectBox:focus + #checkboxes,
+.selectBox:active + #checkboxes,
+#myMultiselect:hover #checkboxes {
+  display: block;
+}
+
+/* Style for each checkbox label */
+#checkboxes label {
+  display: inline-block;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hover effect for the labels */
+#checkboxes label:hover {
+  background-color: #f1f1f1;
+}
+
+/* Hide the default checkbox */
+#checkboxes input {
+  margin-right: 10px;
+}
+
+/* Style for the selected items display */
+.form-select {
+  flex-grow: 1;
+}
+
+/* Style to indicate the dropdown area */
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* Ensuring the parent div takes up 100% width */
+.col-md-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.checkbox-dropdown {
+  width: 200px;
+  border: 1px solid #aaa;
+  padding: 10px;
+  position: relative;
+  margin: 0 auto;
+  user-select: none;
+}
+
+/* Display CSS arrow to the right of the dropdown text */
+.checkbox-dropdown:after {
+  content:'';
+  height: 0;
+  position: absolute;
+  width: 0;
+  border: 6px solid transparent;
+  border-top-color: #000;
+  top: 50%;
+  right: 10px;
+  margin-top: -3px;
+}
+
+/* Reverse the CSS arrow when the dropdown is active */
+.checkbox-dropdown.is-active:after {
+  border-bottom-color: #000;
+  border-top-color: #fff;
+  margin-top: -9px;
+}
+
+.checkbox-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%; /* align the dropdown right below the dropdown text */
+  border: inherit;
+  border-top: none;
+  left: -1px; /* align the dropdown to the left */
+  right: -1px; /* align the dropdown to the right */
+  opacity: 0; /* hide the dropdown */
+  transition: opacity 0.4s ease-in-out;
+  height: 100px;
+  /*overflow: scroll;*/
+  overflow-x: hidden;
+  pointer-events: none; /* avoid mouse click events inside the dropdown */
+}
+.is-active .checkbox-dropdown-list {
+  opacity: 1; /* display the dropdown */
+  pointer-events: auto; /* make sure that the user still can select checkboxes */
+}
+
+.checkbox-dropdown-list li label {
+  display: block;
+  border-bottom: 1px solid silver;
+  padding: 10px;
+  transition: all 0.2s ease-out;
+}
+
+.checkbox-dropdown-list li label:hover {
+  background-color: #555;
+  color: white;
+}
+
+.scrollable-container {
+  max-height: 850px;
+  /* Adjust this value as needed */
+  /*overflow-y: auto;*/
+  padding: 20px;
+  border: 1px solid #ddd;
+  /* Optional: for visual clarity */
+}
+
+.declaration-heading {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.signature-pad {
+  background-color: red; 
+  border: 1px solid black; 
+}
+
+#signature{
+  background-color: red; 
+  border: 1px solid black; 
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .btn-header {
+    font-size: 16px;
+  }
+
+  main {
+    padding-left: 5%;
+  }
+
+  .container-fluid {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .panel-body {
+    padding: 15px;
+  }
+
+  .form-control {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .col-md-3 {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .checkbox-dropdown {
+    width: 100%;
+  }
+
+  .scrollable-container {
+    padding: 10px;
+  }
+
+  .declaration-heading {
+    font-size: 1.2em;
+  }
+}

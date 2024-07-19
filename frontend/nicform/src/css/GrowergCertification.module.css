@@ -1,0 +1,365 @@
+/* Base Styles */
+.container {
+    max-width: 2200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff5e6; /* Light orange background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings styling */
+.headings {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ff6600; /* Orange color for headings */
+}
+
+/* Panel styling */
+.panel {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: 500px;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+    height: 100px;
+}
+
+/* Label styling */
+.label {
+    font-weight: bold;
+}
+
+/* Input styling */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #ff6600; /* Orange color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00; /* Darker orange on hover */
+}
+
+p {
+    margin-top: 10px;
+    color: #28a745; /* Green color for success message */
+    font-weight: bold;
+}
+
+/* Table container styling */
+.tablecontainer {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #ff6600; /* Orange color */
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Declaration Container styling */
+.declarationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.declarationRow {
+    display: flex;
+    align-items: center; /* This ensures the checkbox and text are aligned vertically */
+}
+
+.checkbox {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Button Container styling */
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff6600;
+    background-color: #ff6600;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #e65c00;
+}
+
+.button:focus {
+    background-color: #e65c00;
+    box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.5);
+}
+
+.button:active {
+    transform: scale(0.95);
+    background-color: #28a745;
+}
+
+.activeButton {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.required {
+    color: red;
+    margin-left: 5px;
+}
+
+#starMark {
+    color: red;
+}
+
+/* Preview container styling */
+.previewcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.previewrow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.previewsection {
+    flex: 1;
+    margin: 10px;
+}
+
+.preview-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.previewtable th,
+.previewtable td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.signatureimage {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .panel {
+        height: auto;
+    }
+
+    .form-group {
+        height: auto;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        margin-bottom: 10px;
+    }
+
+    .previewrow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .previewsection {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .headings {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .panel {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        padding: 8px;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+    }
+
+    .tablecontainer {
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .previewcontainer {
+        max-width: 100%;
+        padding: 5px;
+    }
+
+    .previewrow {
+        flex-direction: column;
+    }
+
+    .previewsection {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2px;
+    }
+
+    .headings {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .panel {
+        padding: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        padding: 6px;
+    }
+
+    .btn-primary {
+        padding: 6px 12px;
+    }
+
+    .tablecontainer {
+        margin-top: 10px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .previewcontainer {
+        max-width: 100%;
+        padding: 2px;
+    }
+
+    .previewrow {
+        flex-direction: column;
+    }
+
+    .previewsection {
+        margin: 2px 0;
+    }
+}
