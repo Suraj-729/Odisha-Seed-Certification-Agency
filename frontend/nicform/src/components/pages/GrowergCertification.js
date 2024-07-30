@@ -241,7 +241,7 @@ const GrowergCertification = () => {
 
         if (!sigCanvas.current || !sigCanvas.current.getTrimmedCanvas) {
             console.error('sigCanvas.current is not available or getTrimmedCanvas method is not defined');
-           // setMessage('Error: Signature is not available');
+            // setMessage('Error: Signature is not available');
             return;
         }
 
@@ -322,7 +322,7 @@ const GrowergCertification = () => {
             </div>
 
 
-            <div className={style.buttonContainer}>
+            {/* <div className={style.buttonContainer}>
                 {[1, 2, 3, 4, 5].map((num) => (
                     <button
                         key={`${num}`}
@@ -333,7 +333,38 @@ const GrowergCertification = () => {
                         {num}
                     </button>
                 ))}
+            </div> */}
+
+            {/* <div className={style.buttonContainer}>
+                {[1, 2, 3, 4, 5].map((num, index) => (
+                    <div key={num} className={style.buttonWrapper}>
+                        <button
+                            id={`${num}`}
+                            className={`${style.button} ${step === num ? style.activeButton : ''}`}
+                            onClick={() => handleStepClick(num)}
+                        >
+                            {num}
+                        </button>
+                        {index < 4 && step === num ? <div className={style.arrow}></div> : null}
+                    </div>
+                ))}
+            </div> */}
+
+            <div className={style.buttonContainer}>
+                {[1, 2, 3, 4, 5].map((num, index) => (
+                    <div key={num} className={style.buttonWrapper}>
+                        <button
+                            id={`${num}`}
+                            className={`${style.button} ${step >= num ? style.activeButton : ''}`}
+                            onClick={() => handleStepClick(num)}
+                        >
+                            {num}
+                        </button>
+                        {index < 4 && step > num ? <div className={style.arrow}></div> : null}
+                    </div>
+                ))}
             </div>
+
             <div className={style.container}>
                 <div className={style.panel} panel-primary>
                     <form onSubmit={handleSubmit}>
@@ -686,7 +717,20 @@ const GrowergCertification = () => {
 
                                 </div>
 
-                                <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button>
+                                {/* Other content can go here */}
+                                <div style={{ position: 'relative', height: '90px', padding: '20px' }}>
+                                    <button
+                                        style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                        className="btn btn-primary"
+                                        type="button"
+                                        onClick={nextStep}
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+
+
+                                {/* <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button> */}
                             </div>
                         )}
 
@@ -983,13 +1027,33 @@ const GrowergCertification = () => {
 
 
                                 <div className="btn-container">
-                                    <button className="btn btn-primary" type="button" onClick={backStep}>Back</button>
-                                    <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button>
+                                    {/* <button className="btn btn-primary" type="button" onClick={backStep}>Back</button> */}
 
+                                    <div style={{ position: 'relative', height: '70px', padding: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                                        <button
+                                            style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                                            className="btn btn-primary"
+                                            type="button"
+                                            onClick={backStep}
+                                        >
+                                            Back
+                                        </button>
+                                        <button
+                                            style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                            className="btn btn-primary"
+                                            type="button"
+                                            onClick={nextStep}
+                                        >
+                                            Next
+                                        </button>
+                                    </div>
                                 </div>
 
 
                             </div>
+
+
+
                         )}
 
                         {step === 3 && (
@@ -1089,21 +1153,40 @@ const GrowergCertification = () => {
                                                 />
                                             </div>
                                         </div>
+                                        <div className="btn-container">
+                                            {/* <button className="btn btn-primary" type="button" onClick={backStep}>Back</button>
+                                            <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button> */}
 
+                                            <div style={{ position: 'relative', height: '70px', padding: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                                                <button
+                                                    style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="button"
+                                                    onClick={backStep}
+                                                >
+                                                    Back
+                                                </button>
+                                                <button
+                                                    style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="button"
+                                                    onClick={nextStep}
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
+
+                                        </div>
 
 
 
                                     </div>
 
                                     {/* <label htmlFor="">I confirm that all particulars submitted are true to the best of my knowledge &belief.</label> */}
-                                    
+
 
                                 </div>
-                                <div className="btn-container">
-                                    <button className="btn btn-primary" type="button" onClick={backStep}>Back</button>
-                                    <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button>
 
-                                </div>
                             </div>
                         )}
 
@@ -1112,48 +1195,48 @@ const GrowergCertification = () => {
                                 <div className={style.container}>
                                     <div className={style.panel} panel-primary>
                                         <div className={style.declarationContainer}>
-                                        <div className={style.declarationRow}>
-                                            <input
-                                                type="checkbox"
-                                                id="declaration1"
-                                                checked={checkboxes.declaration1}
-                                                onChange={handleCheckboxChange}
-                                                className={style.checkbox}
-                                            />
-                                            <label htmlFor="declaration1" className={style.label}>
-                                                I confirm that all particulars submitted are true to the best of my knowledge & belief.
-                                            </label>
+                                            <div className={style.declarationRow}>
+                                                <input
+                                                    type="checkbox"
+                                                    id="declaration1"
+                                                    checked={checkboxes.declaration1}
+                                                    onChange={handleCheckboxChange}
+                                                    className={style.checkbox}
+                                                />
+                                                <label htmlFor="declaration1" className={style.label}>
+                                                    I confirm that all particulars submitted are true to the best of my knowledge & belief.
+                                                </label>
+                                            </div>
+                                            <div className={style.declarationRow}>
+                                                <input
+                                                    type="checkbox"
+                                                    id="declaration2"
+                                                    checked={checkboxes.declaration2}
+                                                    onChange={handleCheckboxChange}
+                                                    className={style.checkbox}
+                                                />
+                                                <label htmlFor="declaration2" className={style.label}>
+                                                    I agree to provide access to further information/products needed by OSOCA at any time so as to check compliance with the required standards.
+                                                </label>
+                                            </div>
+                                            <div className={style.declarationRow}>
+                                                <input
+                                                    type="checkbox"
+                                                    id="declaration3"
+                                                    checked={checkboxes.declaration3}
+                                                    onChange={handleCheckboxChange}
+
+                                                    className={style.checkbox}
+                                                />
+                                                <label htmlFor="declaration3" className={style.label}>
+                                                    I understand that submission of this application in no way implies granting of certification by OSOCA.
+                                                </label>
+                                            </div>
+
+
+
+
                                         </div>
-                                        <div className={style.declarationRow}>
-                                            <input
-                                                type="checkbox"
-                                                id="declaration2"
-                                                checked={checkboxes.declaration2}
-                                                onChange={handleCheckboxChange}
-                                                className={style.checkbox}
-                                            />
-                                            <label htmlFor="declaration2" className={style.label}>
-                                               I agree to provide access to further information/products needed by OSOCA at any time so as to check compliance with the required standards.
-                                            </label>
-                                        </div>
-                                        <div className={style.declarationRow}>
-                                            <input
-                                                type="checkbox"
-                                                id="declaration3"
-                                                checked={checkboxes.declaration3}
-                                                onChange={handleCheckboxChange}
-
-                                                className={style.checkbox}
-                                            />
-                                            <label htmlFor="declaration3" className={style.label}>
-                                                I understand that submission of this application in no way implies granting of certification by OSOCA.
-                                            </label>
-                                        </div>
-
-
-
-
-                                    </div>
                                         <div>
                                             <SignatureCanvas
 
@@ -1165,8 +1248,26 @@ const GrowergCertification = () => {
                                         </div>
                                         <div className="btn-container">
                                             <button onClick={captureSignature}>Capture Signature</button>
-                                            <button className="btn btn-primary" type="button" onClick={backStep}>Back</button>
-                                            <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button>
+                                            {/* <button className="btn btn-primary" type="button" onClick={backStep}>Back</button>
+                                            <button className="btn btn-primary" type="button" onClick={nextStep}>Next</button> */}
+                                            <div style={{ position: 'relative', height: '70px', padding: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                                                <button
+                                                    style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="button"
+                                                    onClick={backStep}
+                                                >
+                                                    Back
+                                                </button>
+                                                <button
+                                                    style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="button"
+                                                    onClick={nextStep}
+                                                >
+                                                    Next
+                                                </button>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -1179,14 +1280,84 @@ const GrowergCertification = () => {
                         {step === 5 && (
                             <div>
 
+                                <div className="row" style={{ margin: '20px', fontFamily: 'Arial, sans-serif' }}>
+                                    <div className="col-md-8" style={{ border: '1px solid #ddd', padding: '20px', borderRadius: '5px' }}>
+                                        <center><strong><u>Dealer Details</u></strong></center>
+                                        <table className="table table-striped" style={{ width: '100%', marginTop: '20px' }}>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td><strong>Date of Application</strong></td>
+                                                    <td className="ng-binding">{date}</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><strong>Name Of The Grower</strong></td>
+                                                    <td className="ng-binding">{growerName}</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><strong>Contact Person</strong></td>
+                                                    <td className="ng-binding">{contactPerson}</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><strong>Owner Name</strong></td>
+                                                    <td className="ng-binding">JAYANT</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><strong>State</strong></td>
+                                                    <td className="ng-binding">{selectedState}</td>
+                                                </tr>
+                                                <tr>
+
+                                                    <td><strong>District</strong></td>
+                                                    <td className="ng-binding">{selectedDistrict}</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="col-md-4" style={{ padding: '20px', textAlign: 'center' }}>
+                                        <img
+                                            src={signatureDataURL}
+                                            alt="Signature Preview"
+                                            style={{ maxWidth: "100%", height: "auto", border: "1px solid #ddd", padding: "5px", borderRadius: "4px" }}
+                                        />
+                                        <p><strong>Dealer Signature</strong></p>
+                                        <center><strong style={{ color: '#1000ff' }}><u>Uploaded Documents</u></strong></center>
+                                        <ul className="fa-ul" style={{ listStyleType: 'none', paddingLeft: '0', marginTop: '20px' }}>
+                                            <li><span className="fa-li"><i className="fa fa-check-square"></i></span>
+                                                {/* <a href="../../public/uploads/fertDealer/ODFE2023DL1159-IDP.pdf" target="_blank">Identity Proof</a> */}
+                                                {Object.keys(files).map((key) => (
+                                                    <ul key={key}>
+                                                        {/* <li>{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).replace('Of', 'of')}:</li> */}
+                                                        <li>
+                                                            {files[key] ? (
+                                                                <a href={URL.createObjectURL(files[key])} target="_blank" rel="noopener noreferrer">{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).replace('Of', 'of')}:</a>
+                                                            ) : (
+                                                                'No file uploaded'
+                                                            )}
+                                                        </li>
+                                                    </ul>
+                                                ))}
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+
                                 {/* Preview Section */}
                                 <div className={style.previewcontainer}>
+
                                     <div className={style.previewrow}>
-                                        <div className={style.previewsection}>
+                                        <div className={`${style.previewsection} col-md-4`}>
                                             <table className={style.previewtable}>
                                                 <thead>
                                                     <tr>
-                                                        <th colSpan="2">Preview:</th>
+                                                        <th colSpan="2" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '15px' }}>Grower Data</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1225,12 +1396,108 @@ const GrowergCertification = () => {
                                                 </tbody>
                                             </table>
                                         </div>
+                                        {/* <div className={style.previewsection} >
+                                            <table className={style.previewtable}>
+                                                <thead>
+                                                    <tr>
+                                                        <th colSpan="2">File Previews:</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {Object.keys(files).map((key) => (
+                                                        <tr key={key}>
+                                                            <td>{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).replace('Of', 'of')}:</td>
+                                                            <td>
+                                                                {files[key] ? (
+                                                                    <a href={URL.createObjectURL(files[key])} target="_blank" rel="noopener noreferrer">View File</a>
+                                                                ) : (
+                                                                    'No file uploaded'
+                                                                )}
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
 
+                                        </div> */}
+
+
+
+                                    </div>
+
+                                    <div className={style.previewrow}>
                                         <div className={style.previewsection}>
                                             <table className={style.previewtable}>
                                                 <thead>
                                                     <tr>
-                                                        <th colSpan="2">Preview:</th>
+                                                        <th colSpan="3" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '15px' }}>Farmer Details</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '13px' }}>Farmer Name</th>
+                                                        <th style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '13px' }}>Area</th>
+                                                        <th style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '13px' }}>Het Proof</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>{farmerName}</td>
+                                                        <td>{area}</td>
+                                                        <td>{hetProof}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div className={style.previewrow}>
+                                        <div className={style.previewsection}>
+                                            <table className={style.previewtable}>
+                                                <thead>
+                                                    <tr>
+                                                        <th colSpan="2" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '13px' }}>Previews:</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Selected Source Seed:</td>
+                                                        <td>{selectedSourceSeed}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Selected Record ICS:</td>
+                                                        <td>{selectedRecordICS}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Selected Neighbour Farm:</td>
+                                                        <td>{selectedNeighbourFarm}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Selected Subcontract Activity:</td>
+                                                        <td>{selectedSubcontractActivity}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Selected Common Storage:</td>
+                                                        <td>{selectedCommonStorage}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Selected Common Marketing:</td>
+                                                        <td>{selectedCommonMarketing}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Motivation:</td>
+                                                        <td>{motivation}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div className={style.previewsection}>
+                                            <table className={style.previewtable}>
+                                                <thead>
+                                                    <tr>
+                                                        <th colSpan="2" style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '13px' }}>Preview:</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1270,111 +1537,12 @@ const GrowergCertification = () => {
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-
-                                    <div className={style.previewrow}>
-                                        <div className={style.previewsection}>
-                                            <div className={style.previewtable}>
-                                                <thead>
-                                                    <tr>
-                                                        <th colSpan="2">Previews:</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Farmer Name</td>
-                                                        <td>{farmerName}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Area</td>
-                                                        <td>{area}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Het Proof</td>
-                                                        <td>{hetProof}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Source Seed:</td>
-                                                        <td>{selectedSourceSeed}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Record ICS:</td>
-                                                        <td>{selectedRecordICS}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Neighbour Farm:</td>
-                                                        <td>{selectedNeighbourFarm}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Subcontract Activity:</td>
-                                                        <td>{selectedSubcontractActivity}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Common Storage:</td>
-                                                        <td>{selectedCommonStorage}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Selected Common Marketing:</td>
-                                                        <td>{selectedCommonMarketing}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Motivation:</td>
-                                                        <td>{motivation}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Date:</td>
-                                                        <td>{date}</td>
-                                                    </tr>
-                                                </tbody>
-
-
-
-                                            </div>
-                                        </div>
-                                        <div className={style.previewsection}>
-                                            <table className={style.previewtable}>
-                                                <thead>
-                                                    <tr>
-                                                        <th colSpan="2">File Previews:</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {Object.keys(files).map((key) => (
-                                                        <tr key={key}>
-                                                            <td>{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).replace('Of', 'of')}:</td>
-                                                            <td>
-                                                                {files[key] ? (
-                                                                    <a href={URL.createObjectURL(files[key])} target="_blank" rel="noopener noreferrer">View File</a>
-                                                                ) : (
-                                                                    'No file uploaded'
-                                                                )}
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-
-
-                                        <div className={style.previewsection}>
-                                            <table className={style.previewtable}>
-                                            <thead>
-                                                    <tr>
-                                                        <th colSpan="2">Signature Preview:</th>
-                                                    </tr>
-                                                </thead>
-                                                <tr>
-                                                    <td> <img src={signatureDataURL} alt="Signature Preview" className="signature-image" /></td>
-                                                </tr>
-                                                
-                                               
-                                            </table>
-
-                                        </div>
-
 
                                     </div>
+
+
+
+
 
 
 
@@ -1387,10 +1555,31 @@ const GrowergCertification = () => {
 
 
 
+
+
                                 <div className="btn-container">
 
-                                    <button className="btn btn-primary" type="button" onClick={nextStep} >next</button>
-                                    <button type="submit" className="btn btn-primary" >Submit</button>
+                                    {/* <button className="btn btn-primary" type="button" onClick={nextStep} >next</button>
+                                    <button type="submit" className="btn btn-primary" >Submit</button> */}
+                                    <div style={{ position: 'relative', height: '70px', padding: '20px', display: 'flex', justifyContent: 'space-between' }}>
+                                                <button
+                                                    style={{ position: 'absolute', bottom: '10px', left: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="button"
+                                                    onClick={backStep}
+                                                >
+                                                    Back
+                                                </button>
+                                                {/* <button
+                                                    style={{ position: 'absolute', bottom: '10px', right: '10px' }}
+                                                    className="btn btn-primary"
+                                                    type="submit"
+                                                    
+                                                >
+                                                   Submit
+                                                </button> */}
+                                                 <button type="submit" className="btn btn-primary"  style={{ position: 'absolute', bottom: '10px', right: '10px' }}>Submit</button>
+                                            </div>
                                     {/* <button onClick={exportToExcel}>Export to Excel</button> */}
                                     {message && <p>{message}</p>}
                                 </div>
