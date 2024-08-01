@@ -553,7 +553,7 @@ const GrowergCertification = () => {
                                             <label htmlFor="mandatory" id={style.starMark}>*</label>
                                         </label>
                                         <input
-                                            className="form-control"
+                                            className={`form-control ${style.input}`}
                                             type="text"
                                             value={farmerName}
                                             onChange={handleFarmerNameChange}
@@ -562,7 +562,7 @@ const GrowergCertification = () => {
                                     <div className="col-md-3">
                                         <label htmlFor="area" className={style.label}>Area: <label htmlFor="mandatory" id={style.starMark}>*</label></label>
                                         <input
-                                            className="form-control"
+                                            className={`form-control ${style.input}`}
                                             type="text"
                                             value={area}
                                             onChange={(e) => setArea(e.target.value)}
@@ -573,7 +573,7 @@ const GrowergCertification = () => {
                                             <label htmlFor="mandatory" id={style.starMark}>*</label>
                                         </label>
                                         <input
-                                            className="form-control"
+                                            className={`form-control ${style.input}`}
                                             type="text"
                                             value={hetProof}
                                             onChange={(e) => setHetProof(e.target.value)}
@@ -1441,8 +1441,8 @@ const GrowergCertification = () => {
                                                 <tbody>
                                                     <tr>
                                                         <td>{farmerName}</td>
-                                                        <td>{area}</td>
                                                         <td>{hetProof}</td>
+                                                        <td>{area}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
